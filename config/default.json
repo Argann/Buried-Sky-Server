@@ -1,0 +1,16 @@
+{
+    "Database": {
+        "host": "database",
+        "user": "bs_user",
+        "password": "bs_pwd",
+        "database": "bs_db",
+        "connectionLimit": 10,
+        "connectTimeout": 10000
+    },
+    "Server": {
+        "port": 5000
+    },
+    "Game": {
+        "defaultLobbyRoomName": "lobby"
+    }
+}
