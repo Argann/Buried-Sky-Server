@@ -5,10 +5,11 @@
  * @Project: Buried Sky
  * @Filename: lobby_routes.js
  * @Last modified by:   Argann BONNEAU
- * @Last modified time: 31-07-2017 17:59
+ * @Last modified time: 05-08-2017 18:45
  */
 
-var logger = require('../utils/logger.js');
+var logger = require('../utils/logger');
+var gameServer = require('../model/gameServer');
 var config = require('config');
 
 exports.name = "Lobby Router";
@@ -24,4 +25,7 @@ exports.register = (socket, io) => {
             .emit("s-message", {message: "[SERVER] Welcome to Buried Sky."});
     });
 
+    socket.on('match-search', () => {
+        gameServer.searchForMatch(socket);
+    });
 };

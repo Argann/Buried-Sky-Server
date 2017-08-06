@@ -5,7 +5,7 @@
  * @Project: Buried Sky
  * @Filename: basic_routes.js
  * @Last modified by:   Argann BONNEAU
- * @Last modified time: 31-07-2017 13:20
+ * @Last modified time: 05-08-2017 17:41
  */
 
 /*
@@ -13,8 +13,8 @@
 */
 
 // --- Requires ---
-var config = require('config');
-var logger = require('../utils/logger.js');
+var config  = require('config');
+var logger  = require('../utils/logger');
 
 // --- Router Name ---
 exports.name = "Basic Router";

@@ -5,7 +5,7 @@
  * @Project: Buried Sky
  * @Filename: index.js
  * @Last modified by:   Argann BONNEAU
- * @Last modified time: 31-07-2017 12:39
+ * @Last modified time: 05-08-2017 17:42
  */
 
 // --- Requirements ---
@@ -16,14 +16,17 @@ var io = require('socket.io')(server);      // Socket.io
 var config = require('config');             // Config stores var in config file
 
 // --- Custom libs ---
-var user = require('./model/user.js');      // The model for an User
-var router = require('./routers/router.js');// The main router, register any other routers.
+var user    = require('./model/user');      // The model for an User
+var router  = require('./routers/router');  // The main router, register any other routers.
+var maps    = require('./model/maps');      // The model for the maps
 
 // --- Constants ---
 const PORT = config.get("Server.port");     // The listening port for the server
 
 // --- App ---
 server.listen(PORT);    // The server now listen to the port defined up there.
+
+maps.registerMaps();    // We load the maps from the assets/maps directory.
 
 io.on('connection', function(socket){ // When someone try to connect to the server...
 
