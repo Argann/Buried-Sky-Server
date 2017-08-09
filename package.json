@@ -4,10 +4,31 @@
   "description": "A server for the marvelous game Buried Sky",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "author": "Argann BONNEAU",
+  "engines": {
+      "node": "*",
+      "npm" : "*"
+  },
+  "author": {
+      "name": "Argann Bonneau",
+      "url" : "http://argann.me",
+      "email" : "contact@argann.io"
+  },
   "license": "MIT",
+  "keywords": [
+      "gameserver",
+      "server",
+      "game",
+      "unity",
+      "buried",
+      "sky"
+  ],
+  "homepage" : "https://github.com/Argann/Buried-Sky-Server/wiki",
+  "repository" : "https://github.com/Argann/Buried-Sky-Server",
+  "bugs" : {
+      "url": "https://github.com/Argann/Buried-Sky-Server/issues"
+  },
   "dependencies": {
     "bcrypt": "^1.0.2",
     "colors": "^1.1.2",
