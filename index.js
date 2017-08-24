@@ -11,14 +11,14 @@
 // --- Requirements ---
 const express = require("express");         // Express is used by Socket.io
 const app = express();                      // Meh, it's express.
-var server = require('http').Server(app);   // The server used to listening
-var io = require('socket.io')(server);      // Socket.io
-var config = require('config');             // Config stores var in config file
+const server = require('http').Server(app);   // The server used to listening
+const io = require('socket.io')(server);      // Socket.io
+const config = require('config');             // Config stores var in config file
 
 // --- Custom libs ---
-var user    = require('./model/user');      // The model for an User
-var router  = require('./routers/router');  // The main router, register any other routers.
-var maps    = require('./model/maps');      // The model for the maps
+const user    = require('./model/user');      // The model for an User
+const router  = require('./routers/router');  // The main router, register any other routers.
+const maps    = require('./model/maps');      // The model for the maps
 
 // --- Constants ---
 const PORT = config.get("Server.port");     // The listening port for the server

@@ -1,17 +1,17 @@
 # We build from the node image
 FROM node:latest
 
-# We create the directory for the project
-RUN mkdir /usr/src/app
+# We load the package.json before the code.
+# With that, Docker only install dependancies if this file change.
+COPY package.json /tmp/package.json
+RUN cd /tmp && npm install
+RUN mkdir -p /usr/src/app && cp -a /tmp/node_modules /usr/src/app/
 
 # We change the workdir
 WORKDIR /usr/src/app
 
 # We copy our source code to the docker image
 COPY . /usr/src/app
-
-# Install everything
-RUN npm install
 
 # Our app is listening on the port 5000
 EXPOSE 5000

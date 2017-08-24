@@ -1,41 +1,42 @@
 {
-  "name": "buried-sky-server",
-  "version": "0.0.1",
-  "description": "A server for the marvelous game Buried Sky",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "engines": {
-      "node": "*",
-      "npm" : "*"
-  },
-  "author": {
-      "name": "Argann Bonneau",
-      "url" : "http://argann.me",
-      "email" : "contact@argann.io"
-  },
-  "license": "MIT",
-  "keywords": [
-      "gameserver",
-      "server",
-      "game",
-      "unity",
-      "buried",
-      "sky"
-  ],
-  "homepage" : "https://github.com/Argann/Buried-Sky-Server/wiki",
-  "repository" : "https://github.com/Argann/Buried-Sky-Server",
-  "bugs" : {
-      "url": "https://github.com/Argann/Buried-Sky-Server/issues"
-  },
-  "dependencies": {
-    "bcrypt": "^1.0.2",
-    "colors": "^1.1.2",
-    "config": "^1.26.1",
-    "express": "^4.15.3",
-    "glob": "^7.1.2",
-    "mysql": "^2.14.0",
-    "socket.io": "^2.0.3"
-  }
+    "name": "buried-sky-server",
+    "version": "0.0.1",
+    "description": "A server for the marvelous game Buried Sky",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "engines": {
+        "node": "*",
+        "npm": "*"
+    },
+    "author": {
+        "name": "Argann Bonneau",
+        "url": "http://argann.me",
+        "email": "contact@argann.io"
+    },
+    "license": "MIT",
+    "keywords": [
+        "gameserver",
+        "server",
+        "game",
+        "unity",
+        "buried",
+        "sky"
+    ],
+    "homepage": "https://github.com/Argann/Buried-Sky-Server/wiki",
+    "repository": "https://github.com/Argann/Buried-Sky-Server",
+    "bugs": {
+        "url": "https://github.com/Argann/Buried-Sky-Server/issues"
+    },
+    "dependencies": {
+        "bcrypt": "^1.0.2",
+        "colors": "^1.1.2",
+        "config": "^1.26.1",
+        "express": "^4.15.3",
+        "glob": "^7.1.2",
+        "matchmaker": "^0.1.0",
+        "mysql": "^2.14.0",
+        "socket.io": "^2.0.3"
+    }
 }
