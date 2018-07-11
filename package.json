@@ -1,42 +1,44 @@
 {
-    "name": "buried-sky-server",
-    "version": "0.0.1",
-    "description": "A server for the marvelous game Buried Sky",
-    "main": "index.js",
-    "scripts": {
-        "start": "node index.js"
+  "name": "buried-sky-server",
+  "version": "0.0.1",
+  "description": "The TypeScript server of the Buried Sky game",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --inspect -r ts-node/register ./src/index.ts",
+    "watch": "node ./node_modules/nodemon/bin/nodemon.js",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
-    "engines": {
-        "node": "*",
-        "npm": "*"
-    },
-    "author": {
-        "name": "Argann Bonneau",
-        "url": "http://argann.me",
-        "email": "contact@argann.io"
-    },
-    "license": "MIT",
-    "keywords": [
-        "gameserver",
-        "server",
-        "game",
-        "unity",
-        "buried",
-        "sky"
-    ],
-    "homepage": "https://github.com/Argann/Buried-Sky-Server/wiki",
-    "repository": "https://github.com/Argann/Buried-Sky-Server",
-    "bugs": {
-        "url": "https://github.com/Argann/Buried-Sky-Server/issues"
-    },
-    "dependencies": {
-        "bcrypt": "^1.0.2",
-        "colors": "^1.1.2",
-        "config": "^1.26.1",
-        "express": "^4.15.3",
-        "glob": "^7.1.2",
-        "matchmaker": "^0.1.0",
-        "mysql": "^2.14.0",
-        "socket.io": "^2.0.3"
-    }
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
+  },
+  "author": "Argann BONNEAU",
+  "license": "ISC",
+  "dependencies": {
+    "@types/inversify": "^2.0.33",
+    "@types/inversify-binding-decorators": "^2.0.0",
+    "@types/node": "^10.5.2",
+    "express": "^4.16.3",
+    "inversify": "^4.13.0",
+    "inversify-binding-decorators": "^4.0.0",
+    "reflect-metadata": "^0.1.12",
+    "typescript": "^2.9.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/jest": "^23.1.5",
+    "jest": "^23.4.0",
+    "nodemon": "^1.18.1",
+    "ts-jest": "^23.0.0",
+    "ts-node": "^7.0.0"
+  }
 }
