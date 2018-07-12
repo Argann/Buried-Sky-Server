@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Buried Sky - Backend Socket Test Client</title>
+</head>
+<body>
+
+    <h1>Buried Sky - Backend Socket Test Client</h1>
+
+    <h2>Etat : <span id="status">Déconnecté</span></h2>
+
+    <hr>
+
+    <input type="text" name="name" id="name" placeholder="Nom de l'évènement">
+
+    <input type="text" name="message" id="message" placeholder="Message de l'évènement">
+
+    <input type="button" value="send" id="send">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script>
+        var socket = io('http://localhost:3000');
+        var statusSpan = document.querySelector('#status');
+        var button = document.querySelector('#send');
+
+        button.addEventListener('click', function() {
+            var name = document.querySelector('#name').value;
+            var message = document.querySelector('#message').value;
+            socket.emit(name, message);
+            console.log(`Emission de l'évènement ${name} : '${message}'`);
+        });
+
+        socket.on('connect', function() {
+            statusSpan.innerHTML = 'Connecté';
+        });
+
+        socket.on('error', function() {
+            statusSpan.innerHTML = 'Déconnecté';
+        });
+
+        socket.on('disconnect', function() {
+            statusSpan.innerHTML = 'Déconnecté';
+        });
+    </script>
+</body>
+</html>

@@ -6,7 +6,12 @@ export interface LogManager {
     /**
      * Fonction permettant un simple affichage de debug du message 'Hello World!'
      */
-    helloworld(): void;
+    helloWorld(): void;
+
+    /**
+     * Fonction effaçant le contenu de la console
+     */
+    clear(): void;
 
     /**
      * Fonction permettant d'afficher un message de debug
@@ -14,5 +19,12 @@ export interface LogManager {
      * @param message Message à afficher dans le debug
      */
     debug(classe: String, message: String): void;
+
+    /**
+     * Fonction permettant d'afficher un message d'erreur
+     * @param classe Nom de la classe voulant afficher l'erreur
+     * @param message Message à afficher dans l'erreur
+     */
+    error(classe: String, message: String): void;
 
 }

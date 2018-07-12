@@ -4,11 +4,19 @@ import { provide } from "inversify-binding-decorators";
 @provide(LogManagerImpl)
 export class LogManagerImpl implements LogManager {
 
-    debug(classe: String, message: String): void {
-        console.debug(`[${classe}] ${message}`);
+    clear(): void {
+        console.clear();
     }
 
-    helloworld(): void {
+    debug(classe: String, message: String): void {
+        console.debug(`[D] [${classe}]\t${message}`);
+    }
+
+    error(classe: String, message: String): void {
+        console.error(`[E] [${classe}]\t${message}`);
+    }
+
+    helloWorld(): void {
         console.log('Hello World !');
     }
 

@@ -27,10 +27,12 @@
     "@types/inversify": "^2.0.33",
     "@types/inversify-binding-decorators": "^2.0.0",
     "@types/node": "^10.5.2",
+    "@types/socket.io": "^1.4.36",
     "express": "^4.16.3",
     "inversify": "^4.13.0",
     "inversify-binding-decorators": "^4.0.0",
     "reflect-metadata": "^0.1.12",
+    "socket.io": "^2.1.1",
     "typescript": "^2.9.2"
   },
   "devDependencies": {
