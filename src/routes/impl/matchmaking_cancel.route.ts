@@ -9,25 +9,29 @@ import { PlayerState } from "../../models/PlayerState";
 import { MatchmakerImpl } from "../../services/impl/MatchmakerImpl";
 import { Matchmaker } from "../../services/contracts/Matchmaker";
 
-@provide(RDisconnect)
-export class RDisconnect implements Route {
+@provide(RMatchmakingCancel)
+export class RMatchmakingCancel implements Route {
 
-    private _registeredName: string = 'disconnect';
+    private _registeredName: string = 'matchmaking_cancel';
 
     constructor(
         @inject(LogManagerImpl) private _logManager: LogManager,
         @inject(MatchmakerImpl) private _matchmaker: Matchmaker
-    ){}
+    ){
+    }
 
     getRegisteredName(): string {
         return this._registeredName;
     }
     
-    onCall(socket: PlayerSocket, reason: string): void {
-        this._logManager.debug('RDisconnect', `Le client ${socket.id} vient de se déconnecter : ${reason}`);
+    onCall(socket: PlayerSocket): void {
 
-        if (socket.state === PlayerState.WAITING) {
+        if (socket.state !== PlayerState.WAITING) {
+            this._logManager.error('RMatchmakingCancel', `Le socket ${socket.id} tente d'annuler un matchmaking sans être en attente.`);
+        } else {
+            this._logManager.debug('RMatchmakingCancel', `${socket.username} n'est plus en attente !`);
             this._matchmaker.removePlayerOfQueue(socket);
+            socket.state = PlayerState.LOGGED;
         }
 
     }

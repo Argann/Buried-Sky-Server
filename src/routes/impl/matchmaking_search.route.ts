@@ -9,25 +9,28 @@ import { PlayerState } from "../../models/PlayerState";
 import { MatchmakerImpl } from "../../services/impl/MatchmakerImpl";
 import { Matchmaker } from "../../services/contracts/Matchmaker";
 
-@provide(RDisconnect)
-export class RDisconnect implements Route {
+@provide(RMatchmakingSearch)
+export class RMatchmakingSearch implements Route {
 
-    private _registeredName: string = 'disconnect';
+    private _registeredName: string = 'matchmaking_search';
 
     constructor(
         @inject(LogManagerImpl) private _logManager: LogManager,
         @inject(MatchmakerImpl) private _matchmaker: Matchmaker
-    ){}
+    ){
+    }
 
     getRegisteredName(): string {
         return this._registeredName;
     }
     
-    onCall(socket: PlayerSocket, reason: string): void {
-        this._logManager.debug('RDisconnect', `Le client ${socket.id} vient de se déconnecter : ${reason}`);
+    onCall(socket: PlayerSocket): void {
 
-        if (socket.state === PlayerState.WAITING) {
-            this._matchmaker.removePlayerOfQueue(socket);
+        if (socket.state !== PlayerState.LOGGED) {
+            this._logManager.error('RMatchmakingSearch', `Le socket ${socket.id} veut chercher un match dans un état invalide.`);
+        } else {
+            this._logManager.debug('RMatchmakingSearch', `${socket.username} est en attente de match !`);
+            this._matchmaker.addPlayerToQueue(socket);
         }
 
     }
