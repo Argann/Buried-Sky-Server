@@ -6,5 +6,7 @@ export interface PlayerSocket extends socketIO.Socket {
     username: string;
 
     state: PlayerState;
+
+    currentMatch: string;
     
 }
